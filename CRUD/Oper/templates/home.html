@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4f93a8;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card h3,
+        .card h6,
+        .card h2 {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="home">Login System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user %}
+                    {% if user != '' %} 
+                            <li class="nav-item">
+                                <a class="nav-link" href="register_customer">Add new Customer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="register_user">Add new User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="search_user">Edit Data for user</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="search">Edit Data for customer</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="logout">LOGOUT<span class="sr-only">(current)</span></a>
+                            </li>
+                {% endif %}
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="login">LOGIN<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Welcome to Our Login Site</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center">Thanks for landing on this page</h3>
+                <br>
+                {% if user %}
+                    {% if user != '' %} 
+                        <h6 class="text-center">Hello, {{user.username}}</h6>
+                    {% endif %}
+                {% else %}
+                    <h6 class="text-center">Hello, Guest</h6>
+                    <h6 class="text-center">Please login to access data</h6>
+                {% endif %}
+                    <h6 class="text-center">Welcome to our new website</h6>
+                    <h6 class="text-center">This is a Demo website</h6>
+                    <br>
+                    <h2 class="text-center">Thanks For visiting</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

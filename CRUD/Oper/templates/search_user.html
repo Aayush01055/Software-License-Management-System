@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4f93a8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; 
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th,
+        td {
+            border: 2px solid #000;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px; 
+        }
+
+        th {
+            background-color: #4f93a8;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #4f93a8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User</h1>
+        <table border="2px">
+            <thead>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+
+            <tbody>
+                {% for i in ret1 %}
+                <tr>
+                    <td>{{i.Id}}</td>
+                    <td>{{i.username}}</td>
+                    <td>{{i.password}}</td>
+                  
+                    <td>
+                        <a href="/update_user/{{i.pk}}">Update</a>
+                    </td>
+                    <td>
+                        <a href="/delete_user/{{i.pk}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <p>
+            <a href="{% url 'home' %}">Return</a>
+        </p>
+    </div>
+</body>
+
+</html>

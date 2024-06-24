@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4f93a8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; 
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th,
+        td {
+            border: 2px solid #000;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px; 
+        }
+
+        th {
+            background-color: #4f93a8;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #4f93a8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Customer</h1>
+        <table border="2px">
+            <thead>
+                <th>Sr No.</th>
+                <th>Serial Number</th>
+                <th>Company Name</th>
+                <th>Activation Code</th>
+                <th>Expiry Date</th>
+                <th>Start Date</th>
+                <th>Checked On</th>
+                <th>MacAddress</th>
+                <th>Activated</th>
+                <th>Checked Date</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+
+            <tbody>
+                {% for i in ret %}
+                <tr>
+                    <td>{{i.SrNo}}</td>
+                    <td>{{i.SerialNumber}}</td>
+                    <td>{{i.CompName}}</td>
+                    <td>{{i.ActivationCode}}</td>
+                    <td>{{i.ExpiryDate}}</td>
+                    <td>{{i.StartDate}}</td>
+                    <td>{{i.CheckedOn}}</td>
+                    <td>{{i.MacAddress}}</td>
+                    <td>{{i.Activated}}</td>
+                    <td>{{i.CheckedDt}}</td>
+
+                    <td>
+                        <a href="/update/{{i.pk}}">Update</a>
+                    </td>
+                    <td>
+                        <a href="/delete/{{i.pk}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>
+            <a href="{% url 'home' %}">Return</a>
+        </p>
+    </div>
+</body>
+
+</html>

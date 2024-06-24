@@ -1,0 +1,19 @@
+Database Setup:
+	1. Make sure you have installed MySQL server on your machine.
+	2. Create a database in MySQL.
+	3. Run the SQL script in MySQL workbech provided with code.
+	4. Once table are created open the project in any of the editor prefreed is VSCode
+	5. In CRUD > settings.py 
+		add following data:
+		Name: Name of database where tables are created
+		User: The user by which you login to server
+		Password: Enter the password for the user.
+		Host: Add the server address on which MySQL is running.
+		Port: Default is 3306.
+	6. Save the file.
+
+Running the project:
+	1. Open the terminal.
+	2. set the terminal path to project.
+	3. Run the project using python manage.py runserver
+	4. The application will open on 127.0.0.1:8000
